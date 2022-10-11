@@ -29,6 +29,7 @@ public final class AViewController: UIViewController {
 
   public init() {
     super.init(nibName: nil, bundle: nil)
+    view.backgroundColor = .white
     setupViews()
   }
 

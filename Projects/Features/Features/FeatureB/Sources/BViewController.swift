@@ -6,10 +6,14 @@
 //  Copyright © 2022 com.devhose. All rights reserved.
 //
 
+import FeatureDependencies
 import Foundation
 import UIKit
 
 public final class BViewController: UIViewController {
+
+
+  private let featureBBuilder: FeatureBBuilder = FeatureBBuilder()
 
   private let button: UIButton = {
     let button = UIButton()
@@ -20,6 +24,7 @@ public final class BViewController: UIViewController {
     button.layer.borderWidth = 1
     button.layer.borderColor = UIColor.black.cgColor
     button.layer.cornerRadius = 8
+    button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     return button
   }()
 
@@ -28,13 +33,18 @@ public final class BViewController: UIViewController {
     super.init(nibName: nil, bundle: nil)
     setupViews()
     self.title = title
-//    navigationItem.title = title
+    view.backgroundColor = .white
   }
 
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-
+  @objc
+  private func didTapButton() {
+    let router = featureBBuilder.build()
+    guard let AVC = router?.routeToAFeatureViewController() else { return }
+    self.navigationController?.pushViewController(AVC, animated: true)
+  }
 
   private func setupViews() {
     view.addSubview(button)
