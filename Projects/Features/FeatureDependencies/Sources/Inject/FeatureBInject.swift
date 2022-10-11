@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public let FeatureBInjectID = "FeatureBInjectID"
+public let featureBInjectID = "FeatureBInjectID"
 
 public protocol FeatureBInject {
   func viewController(title: String?) -> UIViewController
