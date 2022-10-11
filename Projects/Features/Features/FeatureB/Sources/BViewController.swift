@@ -11,15 +11,18 @@ import UIKit
 
 public final class BViewController: UIViewController {
 
-  private let label: UILabel = {
-    let label = UILabel()
-    label.text = "BViewController"
-    label.layer.borderWidth = 2
-    label.layer.borderColor = UIColor.black.cgColor
-    label.font = .boldSystemFont(ofSize: 15)
-    label.translatesAutoresizingMaskIntoConstraints = false
-    return label
+  private let button: UIButton = {
+    let button = UIButton()
+    button.setTitle("BViewController", for: .normal)
+    button.titleLabel?.font = .boldSystemFont(ofSize: 15)
+    button.setTitleColor(UIColor.black, for: .normal)
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.layer.borderWidth = 1
+    button.layer.borderColor = UIColor.black.cgColor
+    button.layer.cornerRadius = 8
+    return button
   }()
+
 
   public init() {
     super.init(nibName: nil, bundle: nil)
@@ -32,13 +35,13 @@ public final class BViewController: UIViewController {
 
 
   private func setupViews() {
-    view.addSubview(label)
+    view.addSubview(button)
 
     NSLayoutConstraint.activate([
-      label.widthAnchor.constraint(equalToConstant: 90),
-      label.heightAnchor.constraint(equalToConstant: 40),
-      label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+      button.widthAnchor.constraint(equalToConstant: 120),
+      button.heightAnchor.constraint(equalToConstant: 40),
+      button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
     ])
   }
 

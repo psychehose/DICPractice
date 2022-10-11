@@ -9,6 +9,8 @@
 
 import UIKit
 
+import FeatureA
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -21,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     let window = UIWindow(frame: UIScreen.main.bounds)
-    window.backgroundColor = .yellow
-    window.rootViewController = UIViewController()
+    window.backgroundColor = .white
+    window.rootViewController = UINavigationController(rootViewController: AViewController())
     window.makeKeyAndVisible()
     self.window = window
 
