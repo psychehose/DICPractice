@@ -10,6 +10,8 @@ import UIKit
 import FeatureDependencies
 
 public class FeatureAInjectImplement: FeatureAInject {
+
+  public init() { } 
   public func viewController() -> UIViewController {
     let vc = AViewController()
 

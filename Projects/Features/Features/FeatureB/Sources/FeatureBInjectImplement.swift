@@ -10,9 +10,8 @@ import FeatureDependencies
 import Foundation
 import UIKit
 
-
-
 public class FeatureBInjectImplement: FeatureBInject {
+  public init() { }
   public func viewController(title: String?) -> UIViewController {
     let vc = BViewController(title: title)
     return vc
