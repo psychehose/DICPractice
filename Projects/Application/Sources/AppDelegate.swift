@@ -10,6 +10,7 @@
 import UIKit
 
 import FeatureA
+import FeatureDependencies
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
   ) -> Bool {
 
+    Container.shared.regist(injectType: FeatureAInjectItem.self)
+    Container.shared.regist(injectType: FeatureBInjectItem.self)
 
     let window = UIWindow(frame: UIScreen.main.bounds)
     window.backgroundColor = .white
