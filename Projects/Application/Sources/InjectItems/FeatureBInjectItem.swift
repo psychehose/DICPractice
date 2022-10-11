@@ -9,3 +9,11 @@
 import Foundation
 import FeatureDependencies
 import FeatureB
+
+final class FeatureBInjectItem: Injectable {
+  init() { }
+  var id: String = featureBInjectID
+  func resolve() -> AnyObject {
+    FeatureBInjectImplement()
+  }
+}
