@@ -24,9 +24,11 @@ public final class BViewController: UIViewController {
   }()
 
 
-  public init() {
+  public init(title: String?) {
     super.init(nibName: nil, bundle: nil)
     setupViews()
+    self.title = title
+//    navigationItem.title = title
   }
 
   required init?(coder: NSCoder) {
