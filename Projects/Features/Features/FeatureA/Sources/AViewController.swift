@@ -6,12 +6,15 @@
 //  Copyright © 2022 com.devhose. All rights reserved.
 //
 
+import FeatureDependencies
 import Foundation
 import UIKit
 
-public final class AViewController: UIViewController {
 
-  private let button: UIButton = {
+public final class AViewController: UIViewController {
+  private let featureABuilder: FeatureABuilder = FeatureABuilder()
+
+  private lazy var button: UIButton = {
     let button = UIButton()
     button.setTitle("AViewController", for: .normal)
     button.titleLabel?.font = .boldSystemFont(ofSize: 15)
@@ -20,6 +23,7 @@ public final class AViewController: UIViewController {
     button.layer.borderWidth = 1
     button.layer.borderColor = UIColor.black.cgColor
     button.layer.cornerRadius = 8
+    button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     return button
   }()
 
@@ -32,6 +36,12 @@ public final class AViewController: UIViewController {
     fatalError("init(coder:) has not been implemented")
   }
 
+  @objc
+  private func didTapButton() {
+    let router = featureABuilder.build()
+    guard let BVC = router?.routeToBFeatureViewController(title: "어쩔티비") else { return }
+    self.navigationController?.pushViewController(BVC, animated: true)
+  }
 
   private func setupViews() {
     view.addSubview(button)
